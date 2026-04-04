@@ -1,11 +1,15 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import FeatureCard from "../components/FeatureCard.astro";
-import Attributions from "../components/Attributions.astro";
+import Functions from "../components/Functions.astro";
 import Distributables from "../components/Distributables.astro";
+import Footer from "../components/Footer.astro";
+
 import presupuestoIcon from "../images/presupuesto.png";
 import tiendaIcon from "../images/tienda.png";
+import appLogo from "../images/icon.png";
 
 const appName = "PosDesktop";
 const appVersion = "v1.2.0";
@@ -34,6 +38,10 @@ const distributablesSectionLabel = "distributables-section"
     <title>{appName}</title>
   </head>
   <body>
+    <Header
+      appLogo={appLogo}
+      appName={appName}
+      appVersion={appVersion} />
     <Hero appName={appName} appVersion={appVersion} goToDistributables=`location.href='#${distributablesSectionLabel}'`/>
     <div class="div-1">
       <FeatureCard
@@ -45,7 +53,8 @@ const distributablesSectionLabel = "distributables-section"
         text="PosDesktop busca ayudar a pequeños negocios a tener un mejor control sobre sus ventas e impedir pérdidas por falta de mercancía o ventas por realizar."
       />
     </div>
+    <Functions />
     <Distributables id={distributablesSectionLabel} appVersion={appVersion} />
-    <Attributions />
   </body>
+  <Footer />
 </html>

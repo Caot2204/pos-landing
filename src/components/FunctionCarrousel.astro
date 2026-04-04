@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+const { title, screenshots, description } = Astro.props;
+---
+
+<style>
+  .carousel-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    border: 2px solid #4C662B;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 4px 0 gray;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 450px;
+  }
+
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Fuerza el encaje horizontal */
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Oculta scrollbar en IE */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar en Chrome/Safari */
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .function-image {
+    border-radius: 5px;
+  }
+
+  .function-description {
+    flex: 0 0 30%;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".carousel-container");
+    
+    containers.forEach((container) => {
+      const carousel = container.querySelector(".carousel");
+      const prevBtn = container.querySelector(".prev");
+      const nextBtn = container.querySelector(".next");
+
+      if (carousel && prevBtn && nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          carousel.scrollLeft += carousel.offsetWidth;
+        });
+
+        prevBtn.addEventListener("click", () => {
+          carousel.scrollLeft -= carousel.offsetWidth;
+        });
+      }
+    });
+  });
+</script>
+
+<section class="carousel-container">
+  <div class="carousel-wrapper">
+    <div class="carousel" id="carousel">
+      {
+        screenshots.map((s: { img: ImageMetadata; altImage: string }) => (
+          <div class="slide">
+            <Image 
+              class="function-image" 
+              src={s.img} 
+              alt={s.altImage ? s.altImage : ""}
+              layout="full-width"
+              height={420}
+              fit="fill" />
+          </div>
+        ))
+      }
+    </div>
+    {
+      screenshots.length > 1 ?
+      <>
+        <button class="prev" id="prevBtn">❮</button>
+        <button class="next" id="nextBtn">❯</button>
+      </>
+      :
+      <></>
+    }
+  </div>
+  <div class="function-description">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</section>

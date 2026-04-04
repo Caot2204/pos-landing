@@ -1,0 +1,124 @@
+---
+import FunctionCarrousel from "./FunctionCarrousel.astro";
+
+import cashClosingScreenshot from "../images/cash-closing.png";
+import currentSaleScreenshot from "../images/current-sale.png";
+import payCardCashScreenshot from "../images/card-cash.png";
+
+import inventoryScreenshot from "../images/inventory.png";
+import searchProductScreenshot from "../images/search-products.png";
+
+import egressesScreenshot from "../images/egress.png";
+import egressFormScreenshot from "../images/egress-form.png";
+
+import usersScreenshot from "../images/users.png";
+import userFormScreenshot from "../images/user-form.png";
+
+import cotizationExampleScreenshot from "../images/cotization-pdf-viewer.png";
+import cotizationOnSaleScreenshot from "../images/cotization-on-sale.png";
+
+import saleEnglishScreenshot from "../images/sale-english.png";
+import otherFunctionsScreenshot from "../images/other-functions.png";
+import administrationScreenshot from "../images/administration.png";
+---
+
+<style>
+  .functions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    margin: 50px 0 50px 0;
+  }
+</style>
+
+
+<section class="functions-container">
+  <h2>Observa sus funciones:</h2>
+  <FunctionCarrousel
+    title="Ventas"
+    screenshots={[
+      {
+        img: currentSaleScreenshot,
+        altImage: "Ventas"
+      },
+      {
+        img: payCardCashScreenshot,
+        altImage: "Pagar venta"
+      },
+      {
+        img: cashClosingScreenshot,
+        altImage: "Cortes de caja"
+      }
+    ]}
+    description="Realiza y visualiza ventas. Cortes de caja por usuario para mejorar la administración." />
+    <FunctionCarrousel
+      title="Inventario"
+      screenshots={[
+        {
+          img: inventoryScreenshot,
+          altImage: "Inventario"
+        },
+        {
+          img: searchProductScreenshot,
+          altImage: "Buscar producto"
+        }
+      ]}
+      description="Agrega, edita y elimina productos del inventario de tu negocio." />
+    <FunctionCarrousel
+      title="Egresos"
+      screenshots={[
+        {
+          img: egressesScreenshot,
+          altImage: "Egresos"
+        },
+        {
+          img: egressFormScreenshot,
+          altImage: "Formulario egreso"
+        }
+      ]},
+      description="Registra los pagos a proveedores o adquisiciones de mercancía." />
+    <FunctionCarrousel
+      title="Usuarios"
+      screenshots={[
+        {
+          img: usersScreenshot,
+          altImage: "Usuarios"
+        },
+        {
+          img: userFormScreenshot,
+          altImage: "Formulario de usuario"
+        }
+      ]}
+      description="Define entre administradores y cajeros para mejorar el control de tu 	negocio." />
+    <FunctionCarrousel
+      title="Cotizaciones"
+      screenshots={[
+        {
+          img: cotizationExampleScreenshot,
+          altImage: "Ejemplo de cotización"
+        },
+        {
+          img: cotizationOnSaleScreenshot,
+          altImage: "Cotización cargada a venta"
+        }
+      ]}
+      description="Realiza cotizaciones a tus clientes, si la desea, la vendes de inmediato." />
+    <FunctionCarrousel
+      title="Otras funciones"
+      screenshots={[
+        {
+          img: administrationScreenshot,
+          altImage: "Administración del negocio"
+        },
+        {
+          img: otherFunctionsScreenshot,
+          altImage: "Otras funciones"
+        },
+        {
+          img: saleEnglishScreenshot,
+          altImage: "Cambio de idioma a inglés"
+        }
+      ]}
+      description="Cambia el stock mínimo. Personaliza PosDesktop con el nombre y logo de tu negocio. Cambia el idioma, realiza y carga respaldo de tus datos fácilmente" />
+</section>

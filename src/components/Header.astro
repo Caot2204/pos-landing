@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import DownloadButton from "./DownloadButton";
+import Social from "./Social.astro";
+import githubIcon from "../images/github-icon.png";
+const { appLogo, appName, appVersion } = Astro.props;
+---
+
+<style>
+  .main-header {
+    position: sticky;
+    top: 0;
+    color: black;
+    padding: 10px;
+    z-index: 50;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .app-data, .download-header-data {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+</style>
+
+<header class="main-header">
+  <nav>
+    <div class="app-data">
+      <Image src={appLogo} , alt={appName} width={50} height={50} />
+      <p>{appName}</p>
+    </div>
+    <div class="download-header-data">
+      <Social
+        icon={githubIcon}
+        name="Github"
+        url="https://github.com/Caot2204/PosDesktop"
+      />
+      <DownloadButton onClick={() => {}} version={appVersion} />
+    </div>
+  </nav>
+</header>
