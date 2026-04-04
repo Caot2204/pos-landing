@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+const { screenshot, title, description } = Astro.props;
+---
+
+<style>
+  .function-app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .description-function {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+</style>
+
+<div class="function-app-container">
+  <h3>{title}</h3>
+  <div class="description-function">
+    <Image src={screenshot} alt={title} />
+    <p>{description}</p>
+  </div>
+</div>

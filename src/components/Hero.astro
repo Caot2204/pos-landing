@@ -1,0 +1,76 @@
+---
+import appLogo from "../images/icon.png";
+import saleScreenshot from "../images/sale.png";
+import { Image } from "astro:assets";
+import DownloadButton from "./DownloadButton";
+const { appName, appVersion, goToDistributables } = Astro.props;
+---
+
+<style>
+  .hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    width: 100%;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/src/images/simon-kadula-OluDgzgCHp4-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(231, 231, 231, 0.187); /* Ajusta la transparencia aquí */
+    z-index: 1;
+  }
+
+  .app-name {
+    font-size: 50px;
+    color: #000000;
+  }
+
+  .app-logo {
+    z-index: 2;
+  }
+
+  .principal-screenshot {
+    z-index: 2;
+    box-shadow: 0 10px 10px 0 #525252;
+    border-radius: 10px;
+  }
+
+  .data-download {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .data-download > * {
+    margin: 10px;
+  }
+</style>
+
+<section class="hero-section">
+  <Image 
+    class="principal-screenshot" 
+    src={saleScreenshot} 
+    alt="App logo" 
+    width="500" 
+    height="300"
+    fit="fill" />
+  <div class="data-download">
+    <Image class="app-logo" src={appLogo} alt="App logo" width="150" height="150" />
+    <p class="app-name">{appName}</p>
+    <DownloadButton onClick={goToDistributables} version={appVersion.toString()} />
+  </div>
+</section>

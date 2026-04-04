@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+const { text, imagePath } = Astro.props;
+---
+
+<style>
+  .feature-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .feature-text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+</style>
+
+<div class="feature-container">
+  <Image src={imagePath} alt="ImageFeature" width={50} height={50} />
+  <p class="feature-text">{text}</p>
+</div>

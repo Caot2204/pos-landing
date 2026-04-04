@@ -1,0 +1,56 @@
+---
+import logoWindows from "../images/logo-windows.png";
+import logoLinux from "../images/logo-linux.png";
+import { Image } from "astro:assets";
+import DownloadButton from "./DownloadButton";
+const { id, appVersion } = Astro.props;
+---
+
+<style>
+  .distributables-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    gap: 30px;
+  }
+
+  .distributables-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: fit-content;
+  }
+
+  .distributable-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .distributable-text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+</style>
+
+<section id={id} class="distributables-section">
+  <h2>Plataformas disponibles</h2>
+  <div class="distributables-container">
+    <div class="distributable-item">
+      <Image src={logoWindows} alt="logo windows" width={50} height={50} />
+      <p class="distributable-text">Windows</p>
+      <DownloadButton onClick={() => {}} version={appVersion} />
+    </div>
+    <div class="distributable-item">
+      <Image src={logoLinux} alt="logo linux" width={50} height={50} />
+      <p class="distributable-text">Linux</p>
+      <DownloadButton onClick={() => {}} version={appVersion} />
+    </div>
+  </div>
+</section>
