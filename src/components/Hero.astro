@@ -20,14 +20,7 @@ const { appName, goToDistributables } = Astro.props;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-  }
-
-  .hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(231, 231, 231, 0.187); /* Ajusta la transparencia aquí */
-    z-index: 1;
+    box-sizing: border-box;
   }
 
   .app-name {
@@ -56,6 +49,27 @@ const { appName, goToDistributables } = Astro.props;
 
   .data-download > * {
     margin: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      gap: 30px;
+      min-height: 100vh;
+      padding: 15px;
+    }
+    .app-name {
+      font-size: 30px;
+      color: white;
+    }
+    .principal-screenshot {
+      width: 300px;
+      height: 200px;
+    }
+    .app-logo {
+      width: 100px;
+      height: 100px;
+    }
   }
 </style>
 

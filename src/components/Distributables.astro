@@ -37,6 +37,8 @@ const linuxAsset = data.assets?.find(asset => asset.name.endsWith('.AppImage'))?
     justify-content: center;
     gap: 30px;
     margin-bottom: 50px;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .distributables-section > h1 {
@@ -48,6 +50,7 @@ const linuxAsset = data.assets?.find(asset => asset.name.endsWith('.AppImage'))?
     flex-direction: row;
     gap: 50px;
     width: fit-content;
+    box-sizing: border-box;
   }
 
   .distributable-item {
@@ -67,6 +70,20 @@ const linuxAsset = data.assets?.find(asset => asset.name.endsWith('.AppImage'))?
   .distributable-text {
     font-size: 1.2rem;
     text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .distributables-container {
+      flex-direction: column;
+      gap: 20px;
+      width: calc(100% - 30px);
+      margin: 0 15px;
+    }
+    .distributable-item {
+      height: auto;
+      gap: 20px;
+      box-sizing: border-box;
+    }
   }
 </style>
 

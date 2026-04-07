@@ -18,6 +18,7 @@ const { title, screenshots, description } = Astro.props;
     padding: 10px;
     box-shadow: 0 4px 4px 0 gray;
     background-color: aliceblue;
+    box-sizing: border-box;
   }
 
   .carousel-wrapper {
@@ -45,6 +46,11 @@ const { title, screenshots, description } = Astro.props;
   .slide {
     flex: 0 0 100%;
     scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
 
   button {
@@ -69,6 +75,9 @@ const { title, screenshots, description } = Astro.props;
 
   .function-image {
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .function-description {
@@ -78,6 +87,23 @@ const { title, screenshots, description } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-container {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 15px;
+      width: calc(100% - 30px);
+    }
+    .carousel-wrapper {
+      height: 300px;
+    }
+    .function-description {
+      flex: none;
+      text-align: center;
+      font-size: 1rem;
+    }
   }
 </style>
 
