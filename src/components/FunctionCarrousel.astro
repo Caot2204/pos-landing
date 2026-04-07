@@ -11,11 +11,13 @@ const { title, screenshots, description } = Astro.props;
     align-items: center;
     width: 100%;
     max-width: 1200px;
+    height: fit-content;
     margin: auto;
     border: 2px solid #4C662B;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 4px 0 gray;
+    background-color: aliceblue;
   }
 
   .carousel-wrapper {
@@ -73,6 +75,9 @@ const { title, screenshots, description } = Astro.props;
     flex: 0 0 30%;
     font-size: 1.2rem;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 </style>
 

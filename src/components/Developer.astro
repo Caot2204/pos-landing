@@ -1,0 +1,76 @@
+---
+import reactIcon from "../images/react-js-icon.png";
+import electronIcon from "../images/electron-icon.png";
+import sequelizeIcon from "../images/sequelize-icon.png";
+import ImageLink from "./ImageLink.astro";
+const sizeIcon = 100;
+---
+
+<style>
+  .developer-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+  }
+
+  .developer-description,
+  .developer-tecnologias  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 50px 60px;
+    gap: 20px;
+  }
+
+  .tecnologias-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<div class="developer-container">
+  <div class="developer-description">
+    <h2>Para desarrolladores</h2>
+    <p>
+      PosDesktop es una aplicación de código abierto que puede ser modificado y
+      mejorado para ser adaptado a necesidades específicas.
+    </p>
+    <p>
+      Si quieres contribuir o descargar el proyecto, puedes visitar el
+      repositorio de GitHub haciendo click en el ícono de GitHub en la esquina
+      superior derecha.
+    </p>
+  </div>
+  <div class="developer-tecnologias">
+    <h3>Técnologías utilizadas</h3>
+    <div class="tecnologias-container">
+      <ImageLink
+        icon={electronIcon}
+        altImage="Electron js"
+        url="https://www.electronjs.org/"
+        width={sizeIcon}
+        heigth={sizeIcon}
+      />
+      <ImageLink
+        icon={reactIcon}
+        altImage="React"
+        url="https://react.dev/"
+        width={sizeIcon}
+        heigth={sizeIcon}
+      />
+      <ImageLink
+        icon={sequelizeIcon}
+        altImage="Sequelize"
+        url="https://sequelize.org/"
+        width={sizeIcon}
+        heigth={sizeIcon}
+      />
+    </div>
+  </div>
+</div>

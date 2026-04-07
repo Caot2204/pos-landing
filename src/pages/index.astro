@@ -5,6 +5,7 @@ import Hero from "../components/Hero.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 import Functions from "../components/Functions.astro";
 import Distributables from "../components/Distributables.astro";
+import Developer from "../components/Developer.astro";
 import Footer from "../components/Footer.astro";
 
 import presupuestoIcon from "../images/presupuesto.png";
@@ -12,7 +13,6 @@ import tiendaIcon from "../images/tienda.png";
 import appLogo from "../images/icon.png";
 
 const appName = "PosDesktop";
-const appVersion = "v1.2.0";
 const distributablesSectionLabel = "distributables-section"
 ---
 
@@ -24,7 +24,7 @@ const distributablesSectionLabel = "distributables-section"
   .div-1 {
     display: flex;
     flex-direction: row;
-    padding: 50px 0 0 0;
+    margin: 50px 0;
   }
 </style>
 
@@ -40,9 +40,8 @@ const distributablesSectionLabel = "distributables-section"
   <body>
     <Header
       appLogo={appLogo}
-      appName={appName}
-      appVersion={appVersion} />
-    <Hero appName={appName} appVersion={appVersion} goToDistributables=`location.href='#${distributablesSectionLabel}'`/>
+      appName={appName}/>
+    <Hero appName={appName} goToDistributables=`location.href='#${distributablesSectionLabel}'`/>
     <div class="div-1">
       <FeatureCard
         imagePath={tiendaIcon}
@@ -54,7 +53,8 @@ const distributablesSectionLabel = "distributables-section"
       />
     </div>
     <Functions />
-    <Distributables id={distributablesSectionLabel} appVersion={appVersion} />
+    <Distributables id={distributablesSectionLabel} />
+    <Developer />
   </body>
   <Footer />
 </html>

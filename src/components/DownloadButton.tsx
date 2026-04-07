@@ -1,14 +1,14 @@
-import '../styles/download-buttons.css';
-
 interface DownloadButtonProps {
-  onClick: () => void;
+  downloadUrl: string;
   version?: string;
 }
 
 export default function DownloadButton(props: DownloadButtonProps) {
   return (
-    <button className="download-button" onClick={props.onClick}>
-      Descargar {props.version}
-    </button>
+    <div className="download-button">
+      <a className="link-download" href={props.downloadUrl}>
+        Descargar {props.version}
+      </a>
+    </div>
   );
 }

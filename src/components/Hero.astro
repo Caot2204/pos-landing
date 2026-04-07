@@ -2,8 +2,7 @@
 import appLogo from "../images/icon.png";
 import saleScreenshot from "../images/sale.png";
 import { Image } from "astro:assets";
-import DownloadButton from "./DownloadButton";
-const { appName, appVersion, goToDistributables } = Astro.props;
+const { appName, goToDistributables } = Astro.props;
 ---
 
 <style>
@@ -71,6 +70,6 @@ const { appName, appVersion, goToDistributables } = Astro.props;
   <div class="data-download">
     <Image class="app-logo" src={appLogo} alt="App logo" width="150" height="150" />
     <p class="app-name">{appName}</p>
-    <DownloadButton onClick={goToDistributables} version={appVersion.toString()} />
+    <button class="download-button" onclick={goToDistributables}>Descargar</button>
   </div>
 </section>

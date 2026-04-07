@@ -1,14 +1,15 @@
 ---
 import Attributions from "./Attributions.astro"
-import Social from "./Social.astro";
-import githubIcon from "../images/github-icon.png";
 ---
 
 <style>
+  footer {
+    background-color: white;
+  }
   .social-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
     gap: 2rem;
@@ -32,12 +33,6 @@ import githubIcon from "../images/github-icon.png";
 
 <footer>
   <div class="social-container">
-    <ul>
-      <Social
-        icon={githubIcon}
-        name="Github"
-        url="https://github.com/Caot2204/PosDesktop" />
-    </ul>
     <Attributions />
   </div>
 </footer>

@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+const { extraClass, icon, altImage, url, width, height } = Astro.props; 
+---
+
+<style>
+  .icon-link {
+    text-decoration: none;
+    color: black;
+  }
+</style>
+
+<a class={`icon-link ${extraClass || ''}`} href={url}>
+  <Image src={icon} alt={altImage} width={width} height={height} />
+</a>
