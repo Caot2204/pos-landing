@@ -11,26 +11,62 @@ import Footer from "../components/Footer.astro";
 import presupuestoIcon from "../images/presupuesto.png";
 import tiendaIcon from "../images/tienda.png";
 import appLogo from "../images/icon.png";
+import { Image } from "astro:assets";
+import happyImage from "../images/feliz.png";
+import developerImage from "../images/desarrollador.png";
+const imageSize = 80;
 
 const appName = "PosDesktop";
-const distributablesSectionLabel = "distributables-section"
+const descriptionApp = "Punto de venta para pequeños negocios";
+const distributablesSectionLabel = "distributables-section";
 ---
 
 <style>
   html {
     scroll-behavior: smooth;
   }
-  
+
   .div-1 {
     display: flex;
     flex-direction: row;
     margin: 50px 0;
   }
 
+  .help-container {
+    flex-direction: column;
+    background-color: white;
+    padding: 50px 0;
+    justify-content: center;
+  }
+
+  .help-container > h2 {
+    text-align: center;
+  }
+
+  .to-update-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 2px 0 solid black;
+    padding: 0 10px;
+  }
+
+  .to-update-container > p {
+    font-size: 18px;
+    text-align: center;
+  }
+
   @media (max-width: 768px) {
-    .div-1 {
+    .div-1,
+    .to-update-container {
       flex-direction: column;
       align-items: center;
+    }
+
+    .help-container > h2 {
+      margin-bottom: 20px;
     }
   }
 </style>
@@ -42,13 +78,29 @@ const distributablesSectionLabel = "distributables-section"
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{appName}</title>
+    <meta
+      property="og:title"
+      content="PosDesktop | Punto de venta para pequeños negocios"
+    />
+    <meta
+      property="og:description"
+      content="Controla ventas, inventario y gastos desde tu PC con PosDesktop."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/path/to/preview-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="description"
+      content="PosDesktop es un punto de venta para escritorio que ayuda a pequeños negocios a controlar ventas, inventario y gastos."
+    />
+    <title>{appName} | {descriptionApp}</title>
   </head>
   <body>
-    <Header
-      appLogo={appLogo}
-      appName={appName}/>
-    <Hero appName={appName} goToDistributables=`location.href='#${distributablesSectionLabel}'`/>
+    <Header appLogo={appLogo} appName={appName} />
+    <Hero
+      appName={appName}
+      goToDistributables=`location.href='#${distributablesSectionLabel}'`
+    />
     <div class="div-1">
       <FeatureCard
         imagePath={tiendaIcon}
@@ -61,6 +113,19 @@ const distributablesSectionLabel = "distributables-section"
     </div>
     <Functions />
     <Distributables id={distributablesSectionLabel} />
+    <div class="help-container">
+      <h2>Tu apoyo importa :)</h2>
+      <div class="to-update-container">
+        <p>PosDesktop esta en continuo mantenimiento y agregando mejoras, si detecta algún error o desea sugerir alguna funcionalidad, puede notificarlo al correo electrónico: <strong>posdesktopcontact@gmail.com</strong></p>
+        <Image src={happyImage} alt="" width={imageSize} height={imageSize} />
+        <Image
+          src={developerImage}
+          alt=""
+          width={imageSize}
+          height={imageSize}
+        />
+      </div>
+    </div>
     <Developer />
   </body>
   <Footer />
