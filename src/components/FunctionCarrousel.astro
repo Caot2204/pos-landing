@@ -112,17 +112,27 @@ const { title, screenshots, description } = Astro.props;
     const containers = document.querySelectorAll(".carousel-container");
     
     containers.forEach((container) => {
-      const carousel = container.querySelector(".carousel");
-      const prevBtn = container.querySelector(".prev");
-      const nextBtn = container.querySelector(".next");
+      const carousel = container.querySelector<HTMLElement>(".carousel");
+      const prevBtn = container.querySelector<HTMLButtonElement>(".prev");
+      const nextBtn = container.querySelector<HTMLButtonElement>(".next");
 
       if (carousel && prevBtn && nextBtn) {
         nextBtn.addEventListener("click", () => {
-          carousel.scrollLeft += carousel.offsetWidth;
+          const isAtEnd =
+            carousel.scrollLeft + carousel.clientWidth >=
+            carousel.scrollWidth - 1;
+
+          carousel.scrollTo({
+            left: isAtEnd ? 0 : carousel.scrollLeft + carousel.clientWidth,
+            behavior: "smooth",
+          });
         });
 
         prevBtn.addEventListener("click", () => {
-          carousel.scrollLeft -= carousel.offsetWidth;
+          carousel.scrollBy({
+            left: -carousel.clientWidth,
+            behavior: "smooth",
+          });
         });
       }
     });
